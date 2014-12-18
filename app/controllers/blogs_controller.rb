@@ -1,15 +1,25 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate, except: :index
   # GET /blogs
   # GET /blogs.json
   def index
     @blogs = Blog.all
+    return @blogs || []
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+  end
+
+  def manage
+    @blogs = Blog.all
+  end
+
+  def get_markdown_text
+    render partial: 'blog_post', locals: { blog: { title: params["blog_title"], tags: process_tags(params['blog_tags'],params['blog_title']), created_at: params["blog_created_at"], body: markdown(params["blog_body"]) } }
+    return
   end
 
   # GET /blogs/new
@@ -24,11 +34,13 @@ class BlogsController < ApplicationController
   # POST /blogs
   # POST /blogs.json
   def create
+    blog_params["tags"] = process_tags(params['blog']['tags'],params['blog']['title'])
+
     @blog = Blog.new(blog_params)
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        format.html { redirect_to manage_blogs_path, notice: 'Blog was successfully created.' }
         format.json { render action: 'show', status: :created, location: @blog }
       else
         format.html { render action: 'new' }
@@ -42,7 +54,7 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
+        format.html { redirect_to manage_blogs_path, notice: 'Blog was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +68,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url }
+      format.html { redirect_to manage_blogs_path }
       format.json { head :no_content }
     end
   end
@@ -71,4 +83,11 @@ class BlogsController < ApplicationController
     def blog_params
       params.require(:blog).permit(:title, :body, :tags)
     end
+
+    def process_tags(tags,title)
+      tags = tags.split(',').map { |tag| tag.downcase.strip }
+      title = title.downcase
+      tags << title unless tags.include?(title)
+      return tags
+    end 
 end

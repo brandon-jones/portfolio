@@ -1,0 +1,62 @@
+// .header {
+//   position: fixed;
+// 	width: 30%;
+//   margin-left: auto;
+//   margin-right: auto;
+//   background-color: black;
+//   bottom: 0;
+// }
+
+
+.header {
+	height: 3em;
+	line-height: 3em;
+	position: fixed;
+	top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: #dbdbdb;
+}
+
+.header-right {
+	width: 20em;
+  border-radius: 10px;
+  text-align: right;
+  padding: .5em .5em .5em .5em;
+  display: inline-block;
+  float: right;
+}
+
+.header-left {
+	display: inline-block;
+	margin-left: 1em;
+	font-weight: bold;
+	font-size: 200%;
+}
+
+.header-links {
+	border-left: thick solid black;
+	padding-left: .5em;
+}
+
+.twitter {
+	color: #0084B4;
+}
+
+.envelope {
+	color: light-grey;
+}
+
+.linkedin-square {
+	color: #1C87BD;
+}
+
+.header-img-link {
+	padding-right: .5em;
+}
+
+a.no-decorations {
+	text-decoration:none;
+	color: inherit;
+}

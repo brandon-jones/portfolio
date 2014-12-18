@@ -1,0 +1,6 @@
+%div.container-fluid
+  = render :partial => 'layouts/title', locals: { title: "About Brandon" }
+  %div.row
+    %div.col-md-3
+    %div.col-md-6
+      =markdown(@about_me)
