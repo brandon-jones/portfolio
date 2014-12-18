@@ -1,0 +1,7 @@
+%div.container-fluid
+  = render :partial => 'layouts/title', locals: { title: "Brandon's Blog" }
+  %div.row
+    %div.col-md-6.col-md-offset-3
+      -@blogs.each do |blog|
+        = render :partial => 'blog_post', locals: { blog: blog }
+        %hr

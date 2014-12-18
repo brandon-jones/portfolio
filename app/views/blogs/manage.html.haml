@@ -1,0 +1,25 @@
+%div.container-fluid
+  = render :partial => 'layouts/title', locals: { title: "Manage the blog" }
+  %div.row
+    %div.col-md-3
+    %div.col-md-6
+      = link_to 'New Blog', new_blog_path
+      -@blogs.each do |blog|
+        %div.bottom-border
+          %h2.text-center
+            =blog.title
+          .text-center
+            =blog.tags
+          %div.small.text-center
+            =local_time(blog.created_at)
+          %div.text-center
+            = link_to 'Show', blog_path(blog.id)
+            :escaped
+              ~
+            = link_to 'Edit', edit_blog_path(blog)
+            :escaped
+              ~
+            = link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }
+          %div.blog-body
+            =markdown(blog.body)
+          %br

@@ -1,4 +1,17 @@
 Portfolio::Application.routes.draw do
+  
+  get '/blogs/markdown', to: 'blogs#get_markdown_text'
+
+  resources :blogs
+
+  root 'blogs#index'
+
+  get 'manage/blogs', to: 'blogs#manage'
+
+  get 'about_me', to: 'about_me#index'
+
+  get 'projects', to: 'projects#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

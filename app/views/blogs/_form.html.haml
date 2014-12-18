@@ -1,0 +1,27 @@
+= form_for(@blog, html: {class: "form"}) do |f|
+  - if @blog.errors.any?
+    %div.form-group
+      #error_explanation
+        %h2
+          = pluralize(@blog.errors.count, "error")
+          prohibited this blog from being saved:
+        %ul
+          - @blog.errors.full_messages.each do |msg|
+            %li= msg
+  %div.form-group
+    = f.label :title
+    %br
+    = f.text_field :title, class: 'blog-title form-control'
+  %div.form-group
+    = f.label :tags
+    %br
+    = f.text_field :tags, class: 'blog-title form-control'
+  %div.form-group
+    = f.hidden_field :created_at, created_at: @blog.created_at
+  %div.form-group
+    = f.label :body
+    %br
+    = f.text_area :body, class: 'new-blog form-control'
+  %div.form-group
+    .actions
+      = f.submit 'Submit', class: 'btn btn-default'

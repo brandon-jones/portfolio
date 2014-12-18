@@ -1,13 +1,15 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.11'
+gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+
+gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.2'
+gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -21,8 +23,14 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'local_time', '~> 1.0.0'
+
+gem 'redcarpet', '~> 3.2.0'
+
+gem 'haml', '~> 4.0.5'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -33,7 +41,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -43,3 +51,19 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :test do
+	gem 'guard-rspec'
+  gem 'spork'
+  gem 'guard-spork'
+  gem 'guard-bundler'
+end
+
+group :development do 
+  gem 'pry', '~> 0.10.0'
+  gem 'pry-rails'
+  gem 'meta_request'
+  gem 'faker', '~> 1.4.3'
+  gem 'awesome_print', '~> 1.2.0'
+  gem 'better_errors', '~> 1.1.0'
+  gem 'binding_of_caller', '~> 0.7.2'
+end

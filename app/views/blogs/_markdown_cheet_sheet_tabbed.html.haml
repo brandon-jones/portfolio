@@ -1,0 +1,72 @@
+%div.container-fluid.markdown-row
+  %div.row
+    %div.col-xs-1
+      %div{:role => "panel"}
+        %ul.list-unstyled.btn-xs{:role => "tablist"}
+          %li.active{:role => "presentation"}
+            %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#blog_elements", :role => "tab"} Block
+          %li{:id => 'presentation', :role => "presentation"}
+            %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#span_elements", :role => "tab"} Span
+          %li{:id => 'presentation', :role => "presentation"}
+            %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#miscellaneous", :role => "tab"} Misc
+    %div.col-xs-3
+      .tab-content
+        #blog_elements.tab-pane.active{:role => "panel"} 
+          %div{:role => "panel"}
+            %ul.list-unstyled.btn-xs{:role => "tablist"}
+              %li.active{:role => "presentation"}
+                %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#paragraphs_breaks", :role => "tab"} Paragraphs & Breaks
+              %li{:id => 'presentation', :role => "presentation"}
+                %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#headers", :role => "tab"} Headers
+              %li{:id => 'presentation', :role => "presentation"}
+                %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#blockquotes", :role => "tab"} Blockquotes
+              %li{:id => 'presentation', :role => "presentation"}
+                %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#lists", :role => "tab"} Lists
+              %li{:id => 'presentation', :role => "presentation"}
+                %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#code_blocks", :role => "tab"} Code Blocks
+              %li{:id => 'presentation', :role => "presentation"}
+                %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#horizontal_rules", :role => "tab"} Horizontal Rules
+        #span_elements.tab-pane{:role => "panel"}
+          %div{:role => "panel"}
+            %ul.list-unstyled.btn-xs{:role => "tablist"}
+              %li.active{:role => "presentation"}
+                %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#links", :role => "tab"} Links
+              %li{:id => 'presentation', :role => "presentation"}
+                %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#emphasis", :role => "tab"} Emphasis
+              %li{:id => 'presentation', :role => "presentation"}
+                %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#code", :role => "tab"} Code
+              %li{:id => 'presentation', :role => "presentation"}
+                %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#images", :role => "tab"} Images
+        #miscellaneous.tab-pane{:role => "panel"}
+          %div{:role => "panel"}
+            %ul.list-unstyled.btn-xs{:role => "tablist"}
+              %li.active{:id => 'presentation', :role => "presentation"}
+                %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#automatic_links", :role => "tab"} Automatic Links
+              %li{:id => 'presentation', :role => "presentation"}
+                %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#escaping", :role => "tab"} Escaping
+    %div.col-xs-8
+      .tab-content.markdown-display
+        #paragraphs_breaks.tab-pane.active{:role => "panel"}
+          = render :partial => 'markdown/paragraphs_breaks'
+        #headers.tab-pane{:role => "panel"}
+          headers
+        #blockquotes.tab-pane{:role => "panel"}
+          blockquotes
+        #lists.tab-pane{:role => "panel"}
+          lists
+        #code_blocks.tab-pane{:role => "panel"}
+          = render :partial => 'markdown/code_blocks'
+        #horizontal_rules.tab-pane{:role => "panel"}
+          horizontal_rules
+        #links.tab-pane{:role => "panel"}
+          links
+        #emphasis.tab-pane{:role => "panel"}
+          emphasis
+        #code.tab-pane{:role => "panel"}
+          code
+        #images.tab-pane{:role => "panel"}
+          images
+        #automatic_links.tab-pane{:role => "panel"}
+          automatic_links
+        #escaping.tab-pane{:role => "panel"}
+          escaping

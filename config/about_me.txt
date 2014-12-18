@@ -1,0 +1,7 @@
+I am a Husband, Father, and Developer. In my free time I enjoy spending time with my family, fixing things around the house and learning new programming skills and techniques. 
+
+First serious programming was in .NET while still in college in between my other classes. Now I spend most of my time in Ruby on Rails. I am picked this languaged beucase it is what my currnet job uses. I like to remain open to the idea of new languages and as I get better at Rails I will devote more time to learning other languages. I never want to be known as "The <*insert programming langauge here*> Guy"
+
+I graduated college from California State University of Bakersfield in the summer of 2013 eaning my Computer Infomration Systems Degree. 
+
+Currently I work for Lightspeed Systems out of the Bakersfield California Office. I started as tech support while still in college moving up to QA after a year and a half. After a year in QA (and getting my degree) I became a programmer in late 2012. I currenlty work on their Mobile Manager project and their My Big Campus product. It is great being able to jump in between to two projects since they are so different.
