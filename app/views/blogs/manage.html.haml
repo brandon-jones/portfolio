@@ -4,7 +4,7 @@
     %div.col-md-3
     %div.col-md-6
       = link_to 'New Blog', new_blog_path
-      -@blogs.each do |blog|
+      -@blogs.reverse.each do |blog|
         %div.bottom-border
           %h2.text-center
             =blog.title
