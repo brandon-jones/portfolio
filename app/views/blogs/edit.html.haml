@@ -10,7 +10,7 @@
             %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#preview", :role => "tab"} Preview
         .tab-content
           #edit.tab-pane.active{:role => "tabpanel"} 
-            = render :partial => 'markdown_cheet_sheet_tabbed'
+            = render :partial => 'markdown/markdown_cheet_sheet_tabbed'
             %hr
             = render 'form'
           #preview.tab-pane{:role => "tabpanel"}

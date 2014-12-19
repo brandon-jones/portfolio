@@ -1,15 +1,15 @@
 %div.container-fluid.markdown-row
   %div.row
-    %div.col-xs-1
-      %div{:role => "panel"}
+    %div#markdown-back-fill.col-xs-1
+      %div.tab-content{:role => "panel"}
         %ul.list-unstyled.btn-xs{:role => "tablist"}
-          %li.active{:role => "presentation"}
+          %li.active{:id => 'presentation', :role => "presentation"}
             %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#blog_elements", :role => "tab"} Block
           %li{:id => 'presentation', :role => "presentation"}
             %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#span_elements", :role => "tab"} Span
           %li{:id => 'presentation', :role => "presentation"}
             %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#miscellaneous", :role => "tab"} Misc
-    %div.col-xs-3
+    %div#markdown-back-fill.col-xs-3
       .tab-content
         #blog_elements.tab-pane.active{:role => "panel"} 
           %div{:role => "panel"}
@@ -47,26 +47,26 @@
     %div.col-xs-8
       .tab-content.markdown-display
         #paragraphs_breaks.tab-pane.active{:role => "panel"}
-          = render :partial => 'markdown/paragraphs_breaks'
+          = render :partial => 'markdown/parts/paragraphs_breaks'
         #headers.tab-pane{:role => "panel"}
-          headers
+          = render :partial => 'markdown/parts/headers'
         #blockquotes.tab-pane{:role => "panel"}
-          blockquotes
+          = render :partial => 'markdown/parts/blockquotes'
         #lists.tab-pane{:role => "panel"}
-          lists
+          = render :partial => 'markdown/parts/lists'
         #code_blocks.tab-pane{:role => "panel"}
-          = render :partial => 'markdown/code_blocks'
+          = render :partial => 'markdown/parts/code_blocks'
         #horizontal_rules.tab-pane{:role => "panel"}
-          horizontal_rules
+          = render :partial => 'markdown/parts/horizontal_rules'
         #links.tab-pane{:role => "panel"}
-          links
+          = render :partial => 'markdown/parts/links'
         #emphasis.tab-pane{:role => "panel"}
-          emphasis
+          = render :partial => 'markdown/parts/emphasis'
         #code.tab-pane{:role => "panel"}
-          code
+          = render :partial => 'markdown/parts/code'
         #images.tab-pane{:role => "panel"}
-          images
+          = render :partial => 'markdown/parts/images'
         #automatic_links.tab-pane{:role => "panel"}
-          automatic_links
+          = render :partial => 'markdown/parts/automatic_links'
         #escaping.tab-pane{:role => "panel"}
-          escaping
+          = render :partial => 'markdown/parts/escaping'
