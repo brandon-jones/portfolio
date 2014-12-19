@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate
   	authenticate_or_request_with_http_basic do |username, password|
-	    if(username == ENV["ADMIN_NAME"] && password == ENV["ADMIN_PASSWORD"])
+	    if(username == ENV["PF_NAME"] && password == ENV["PF_PASSWORD"])
 	      true
 	    else
 	      redirect_to root_path

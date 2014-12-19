@@ -1,0 +1,8 @@
+= form_for(@about_me, html: {class: "form"}) do |f|
+  %div.form-group
+    = f.label :body
+    %br
+    = text_area_tag :body, @about_me, class: 'about-me-edit form-control'
+  %div.form-group
+    .actions
+      = f.submit 'Submit', class: 'btn btn-default'

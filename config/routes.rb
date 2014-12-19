@@ -12,6 +12,12 @@ Portfolio::Application.routes.draw do
 
   get 'projects', to: 'projects#index'
 
+  get 'manage', to: 'manages#index'
+
+  post 'about_me/edit', to: 'about_me#edit', as: 'edit_about_me'
+
+  get 'manage/about_me', to: 'about_me#edit'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
