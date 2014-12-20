@@ -52,6 +52,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 group :test do
+  gem 'rspec-rails', '~> 3.0'
 	gem 'guard-rspec'
   gem 'spork'
   gem 'guard-spork'
