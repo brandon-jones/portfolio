@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :authenticate, except: :index
+
   # GET /blogs
   # GET /blogs.json
   def index
@@ -18,7 +19,14 @@ class BlogsController < ApplicationController
   end
 
   def get_markdown_text
-    render partial: 'blog_post', locals: { blog: { title: params["blog_title"], tags: process_tags(params['blog_tags'],params['blog_title']), created_at: params["blog_created_at"], body: markdown(params["blog_body"]) } }
+    render partial: 'blog_post', locals: { 
+      blog: { 
+        title: params["blog_title"], 
+        tags: process_tags(params['blog_tags'],params['blog_title']), 
+        created_at: params["blog_created_at"], 
+        body: markdown(params["blog_body"]) 
+        } 
+      }
     return
   end
 
@@ -34,8 +42,6 @@ class BlogsController < ApplicationController
   # POST /blogs
   # POST /blogs.json
   def create
-    blog_params["tags"] = process_tags(params['blog']['tags'],params['blog']['title'])
-
     @blog = Blog.new(blog_params)
 
     respond_to do |format|
@@ -84,10 +90,4 @@ class BlogsController < ApplicationController
       params.require(:blog).permit(:title, :body, :tags)
     end
 
-    def process_tags(tags,title)
-      tags = tags.split(',').map { |tag| tag.downcase.strip }
-      title = title.downcase
-      tags << title unless tags.include?(title)
-      return tags
-    end 
 end
