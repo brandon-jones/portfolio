@@ -1,0 +1,2 @@
+#! /bin/sh
+rspec --format html --out spec/rspec_results.html

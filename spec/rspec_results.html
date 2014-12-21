@@ -286,33 +286,83 @@ a {
 </div>
 <div id="div_group_2" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_2" class="passed">New</dt>
+  <dt id="example_group_2" class="passed">Blog</dt>
+  </dl>
+</div>
+<div id="div_group_3" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_3" class="passed">GET #index</dt>
+    <script type="text/javascript">moveProgressBar('8.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should render index template</span><span class='duration'>0.01341s</span></dd>
+    <script type="text/javascript">moveProgressBar('16.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">has a 200 status code</span><span class='duration'>0.00377s</span></dd>
+  </dl>
+</div>
+<div id="div_group_4" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_4" class="passed">POST #create</dt>
+    <script type="text/javascript">moveProgressBar('25.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">redirects to the blog managment page upon successful save</span><span class='duration'>0.04542s</span></dd>
+    <script type="text/javascript">moveProgressBar('33.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">redirects to the index page after auth failure</span><span class='duration'>0.00286s</span></dd>
+    <script type="text/javascript">moveProgressBar('41.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">has a 302 status code</span><span class='duration'>0.00450s</span></dd>
+    <script type="text/javascript">moveProgressBar('50.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">creates a new blog</span><span class='duration'>0.00717s</span></dd>
+  </dl>
+</div>
+<div id="div_group_5" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_5" class="passed">DELETE #destroy</dt>
     <script type="text/javascript">makeRed('rspec-header');</script>
-    <script type="text/javascript">makeRed('div_group_2');</script>
-    <script type="text/javascript">makeRed('example_group_2');</script>
-    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <script type="text/javascript">makeRed('div_group_5');</script>
+    <script type="text/javascript">makeRed('example_group_5');</script>
+    <script type="text/javascript">moveProgressBar('58.3');</script>
     <dd class="example failed">
-      <span class="failed_spec_name">should return true</span>
-      <span class="duration">0.00355s</span>
+      <span class="failed_spec_name">deletes the contact</span>
+      <span class="duration">0.00443s</span>
       <div class="failure" id="failure_1">
-        <div class="message"><pre>
-expected: true
-     got: false
-
-(compared using eql?)
-</pre></div>
-        <div class="backtrace"><pre>./spec/controllers/blogs_controller_spec.rb:6:in `block (3 levels) in &lt;top (required)&gt;&#39;</pre></div>
-    <pre class="ruby"><code><span class="linenum">4</span>        context <span class="string"><span class="delimiter">&quot;</span><span class="content">New</span><span class="delimiter">&quot;</span></span> <span class="keyword">do</span>
-<span class="linenum">5</span>                it <span class="string"><span class="delimiter">&quot;</span><span class="content">should return true</span><span class="delimiter">&quot;</span></span> <span class="keyword">do</span>
-<span class="offending"><span class="linenum">6</span>                        expect(<span class="predefined-constant">false</span>).to eql(<span class="predefined-constant">true</span>)</span>
-<span class="linenum">7</span>                <span class="keyword">end</span>
-<span class="linenum">8</span>        <span class="keyword">end</span></code></pre>
+        <div class="message"><pre>Couldn&#39;t find Blog with id=0</pre></div>
+        <div class="backtrace"><pre>./app/controllers/blogs_controller.rb:85:in `set_blog&#39;
+./spec/controllers/blogs_controller_spec.rb:74:in `block (5 levels) in &lt;top (required)&gt;&#39;
+./spec/controllers/blogs_controller_spec.rb:73:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">83</span>    <span class="comment"># Use callbacks to share common setup or constraints between actions.</span>
+<span class="linenum">84</span>    <span class="keyword">def</span> <span class="function">set_blog</span>
+<span class="offending"><span class="linenum">85</span>      <span class="instance-variable">@blog</span> = <span class="constant">Blog</span>.find(params[<span class="symbol">:id</span>])</span>
+<span class="linenum">86</span>    <span class="keyword">end</span></code></pre>
+      </div>
+    </dd>
+    <script type="text/javascript">moveProgressBar('66.6');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">redirects to contacts#index</span>
+      <span class="duration">0.00378s</span>
+      <div class="failure" id="failure_2">
+        <div class="message"><pre>Couldn&#39;t find Blog with id=0</pre></div>
+        <div class="backtrace"><pre>./app/controllers/blogs_controller.rb:85:in `set_blog&#39;
+./spec/controllers/blogs_controller_spec.rb:79:in `block (4 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">83</span>    <span class="comment"># Use callbacks to share common setup or constraints between actions.</span>
+<span class="linenum">84</span>    <span class="keyword">def</span> <span class="function">set_blog</span>
+<span class="offending"><span class="linenum">85</span>      <span class="instance-variable">@blog</span> = <span class="constant">Blog</span>.find(params[<span class="symbol">:id</span>])</span>
+<span class="linenum">86</span>    <span class="keyword">end</span></code></pre>
       </div>
     </dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.04913 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "1 example, 1 failure";</script>
+<div id="div_group_6" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_6" class="passed">Blog</dt>
+    <script type="text/javascript">moveProgressBar('75.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return the right title</span><span class='duration'>0.00084s</span></dd>
+    <script type="text/javascript">moveProgressBar('83.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return the right body</span><span class='duration'>0.00052s</span></dd>
+    <script type="text/javascript">moveProgressBar('91.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return the right tags</span><span class='duration'>0.00051s</span></dd>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should append the title to the tags</span><span class='duration'>0.00194s</span></dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.12230 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "12 examples, 2 failures";</script>
 </div>
 </div>
 </body>

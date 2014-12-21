@@ -50,6 +50,11 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.2)
+    factory_girl (4.3.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.3.0)
+      factory_girl (~> 4.3.0)
+      railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
     ffi (1.9.6)
@@ -200,6 +205,7 @@ DEPENDENCIES
   better_errors (~> 1.1.0)
   binding_of_caller (~> 0.7.2)
   coffee-rails (~> 4.0.0)
+  factory_girl_rails
   faker (~> 1.4.3)
   guard-bundler
   guard-rspec
