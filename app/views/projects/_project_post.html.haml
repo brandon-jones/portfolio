@@ -1,0 +1,16 @@
+- title = true unless title
+-if title
+  %h2.text-center
+    =project[:title]
+.text-center
+  =format_tags(project[:tags])
+.text-center
+  =link_to project[:link], url_with_protocol(project[:link]), target: "_blank"
+.project-description
+  Description:
+  %br
+  =markdown(project[:description])
+.project-details
+  Details:
+  %br
+  =markdown(project[:details])

@@ -1,0 +1,35 @@
+= form_for(@project, html: {class: "form"}) do |f|
+  - if @project.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@project.errors.count, "error")
+        prohibited this project from being saved:
+      %ul
+        - @project.errors.full_messages.each do |msg|
+          %li = msg
+  .field.form-group
+    = f.label :title
+    %br
+    = f.text_field :title, class: 'blog-title form-control'
+  .field.form-group
+    = f.label :tags
+    %br
+    = f.text_field :tags, class: 'blog-title form-control'
+  .field.form-group
+    = f.label :link
+    %br
+    = f.text_field :link, class: 'blog-title form-control'
+  .field.form-group
+    = f.label :description
+    .small.inline
+      markdown supported
+    %br
+    = f.text_area :description, class: 'blog-title form-control'
+  .field.form-group
+    = f.label :details
+    .small.inline
+      markdown supported
+    %br
+    = f.text_area :details, class: 'blog-title form-control'
+  .actions
+    = f.submit 'Submit', class: 'btn btn-default'

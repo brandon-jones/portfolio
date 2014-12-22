@@ -1,0 +1,25 @@
+%div.container-fluid
+  = render :partial => 'layouts/title', locals: { title: "Manage the Projects" }
+  %div.row
+    %div.col-md-3
+    %div.col-md-6
+      = link_to 'New Project', new_project_path
+      -@projects.reverse.each do |project|
+        %div.bottom-border
+          %h2.text-center
+            =project.title
+          .text-center
+            =project.tags
+          %div.small.text-center
+            =local_time(project.created_at)
+          %div.text-center
+            = link_to 'Show', project_path(project.id)
+            :escaped
+              ~
+            = link_to 'Edit', edit_project_path(project)
+            :escaped
+              ~
+            = link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
+          %div.project-body
+            =markdown(project.description)
+          %br

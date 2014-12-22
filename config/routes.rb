@@ -1,5 +1,9 @@
 Portfolio::Application.routes.draw do
   
+  resources :projects
+
+  get '/manage/projects', to: 'projects#manage'
+
   get '/blogs/markdown', to: 'blogs#get_markdown_text'
 
   resources :blogs

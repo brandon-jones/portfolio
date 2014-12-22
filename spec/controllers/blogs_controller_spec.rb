@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe BlogsController do
 	let(:blog){FactoryGirl.create(:blog)}
-	let(:blog_params){{"blog"=>{"id"=>0,"title"=>"test", "tags"=>"test", "created_at"=>"", "body"=>"tes"}}}
+	let(:blog_params){{"blog"=>{"id"=>0,"title"=>"tester", "tags"=>"test, testing,tested", "created_at"=>"", "body"=>"tes"}}}
 
 	context "Blog" do
 
