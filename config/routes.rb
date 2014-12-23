@@ -1,12 +1,15 @@
 Portfolio::Application.routes.draw do
   
-  resources :projects
 
   get '/manage/projects', to: 'projects#manage'
 
-  get '/blogs/markdown', to: 'blogs#get_markdown_text'
+  get '/blogs/markdown', to: 'blogs#get_markdown_form'
+
+  get '/projects/markdown', to: 'projects#get_markdown_form'
 
   resources :blogs
+
+  resources :projects
 
   root 'blogs#index'
 

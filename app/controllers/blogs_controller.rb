@@ -18,7 +18,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.all
   end
 
-  def get_markdown_text
+  def get_markdown_form
     render partial: 'blog_post', locals: { 
       blog: { 
         title: params["blog_title"], 

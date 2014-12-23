@@ -8,28 +8,30 @@
         - @project.errors.full_messages.each do |msg|
           %li = msg
   .field.form-group
+    = f.hidden_field :id
+  .field.form-group
     = f.label :title
     %br
-    = f.text_field :title, class: 'blog-title form-control'
+    = f.text_field :title, class: 'form-control rerender-on-keyup'
   .field.form-group
     = f.label :tags
     %br
-    = f.text_field :tags, class: 'blog-title form-control'
+    = f.text_field :tags, class: 'form-control rerender-on-keyup'
   .field.form-group
     = f.label :link
     %br
-    = f.text_field :link, class: 'blog-title form-control'
+    = f.text_field :link, class: 'form-control rerender-on-keyup'
   .field.form-group
     = f.label :description
     .small.inline
       markdown supported
     %br
-    = f.text_area :description, class: 'blog-title form-control'
+    = f.text_area :description, class: 'form-control rerender-on-keyup'
   .field.form-group
     = f.label :details
     .small.inline
       markdown supported
     %br
-    = f.text_area :details, class: 'blog-title form-control'
+    = f.text_area :details, class: 'form-control rerender-on-keyup'
   .actions
     = f.submit 'Submit', class: 'btn btn-default'

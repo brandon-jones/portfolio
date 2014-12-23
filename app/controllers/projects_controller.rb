@@ -25,6 +25,20 @@ class ProjectsController < ApplicationController
   	@projects = Project.all
   end
 
+  def get_markdown_form
+    render partial: 'project_post', locals: { 
+      title: true,
+      project: { 
+        title: params["project_title"], 
+        tags: process_tags(params['project_tags'],params['project_title']), 
+        link: params["project_link"], 
+        description: markdown(params["project_description"]), 
+        details: markdown(params["project_details"]), 
+        } 
+      }
+    return
+  end
+
   # POST /projects
   # POST /projects.json
   def create
@@ -49,7 +63,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { renfder action: 'edit' }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
@@ -68,7 +82,7 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = Project.find(params[:id])
+      @project = Project.find(params[:id]) unless params[:id] == 'project_id'
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -3,10 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $("#presentation").on "click", loadMarkdown
+  $(".presentation").on "click", loadMarkdown
 
 loadMarkdown = (event) ->
-  console.log($("#blog_body").text())
   $.get '/blogs/markdown', 
     blog_title: $("#blog_title").val()
     blog_tags: $("#blog_tags").val()

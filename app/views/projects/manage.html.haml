@@ -21,5 +21,11 @@
               ~
             = link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
           %div.project-body
+            %strong
+              Description
             =markdown(project.description)
+          %div.project-body
+            %strong
+              Details
+            =markdown(project.details)
           %br

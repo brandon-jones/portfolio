@@ -12,6 +12,19 @@ namespace :generator do
 		end
 	end
 
+	desc "Create a few projects"
+	task :projects => :environment do
+		3.times do |i|
+			project = Project.new()
+			project.title = Faker::Lorem.sentence(Random.rand(5), false, Random.rand(5))
+			project.link = Faker::Internet.url
+			project.tags = Faker::Lorem.words(Random.rand(5)).join(', ')
+			project.description = Faker::Lorem.paragraph(Random.rand(5), false, Random.rand(5))
+			project.details = Faker::Lorem.paragraph(Random.rand(50), false, Random.rand(50))
+			project.save
+		end
+	end
+
 end
 
 class BlogPost
