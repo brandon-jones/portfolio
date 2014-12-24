@@ -20,11 +20,9 @@ class ApplicationController < ActionController::Base
 	end
 
 	def process_tags(tags,title)
-		return tags unless title.present?
 		return '' unless tags.present?
-		tags = tags.split(',').map{ |t| t.strip.downcase }
-		tags = uniq! if tags.count > 1
-		tags << title if tags && !tags.include?(title) && title.downcase.present?
+		tags = tags.split(',').map{ |t| t.strip.downcase }.uniq
+		tags << title.downcase if title && tags && title.present? && !tags.include?(title.downcase)
 		return tags.join(', ') if tags
 		return ''
 	end

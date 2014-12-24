@@ -5,16 +5,18 @@ module ApplicationHelper
 	end
 
 	def format_tags(tags)
+		return '' unless tags
 		return_tags = []
 		tags = tags.split(', ') if tags.class.to_s == 'String'
 		tags.each do |tag|
-			return_tags << tag if tag.present?
+			return_tags << tag.downcase if tag.present?
 		end
 		return "Tags: #{return_tags.join(', ')}" if return_tags.count > 0
 		return ''
 	end
 
 	def url_with_protocol(url)
+		return '' unless url
     /^http/i.match(url) ? url : "http://#{url}"
   end
 end

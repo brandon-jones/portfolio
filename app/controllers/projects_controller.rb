@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    @project = Project.find_by_id(params[:id])
   end
 
   def manage
