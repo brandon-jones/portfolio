@@ -6,7 +6,7 @@ $ ->
   $(".presentation").on "click", loadMarkdown
 
 loadMarkdown = (event) ->
-  $.get '/blogs/markdown', 
+  $.post '/blogs/markdown', 
     blog_title: $("#blog_title").val()
     blog_tags: $("#blog_tags").val()
     blog_created_at: $("#blog_created_at").val()

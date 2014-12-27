@@ -68,4 +68,5 @@ group :development do
   gem 'awesome_print', '~> 1.2.0'
   gem 'better_errors', '~> 1.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
+  gem 'awesome_print', '~> 1.2.0'
 end

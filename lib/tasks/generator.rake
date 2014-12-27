@@ -15,12 +15,14 @@ namespace :generator do
 	desc "Create a few projects"
 	task :projects => :environment do
 		3.times do |i|
+			puts "Creating Project##{i+1}"
 			project = Project.new()
-			project.title = Faker::Lorem.sentence(Random.rand(5), false, Random.rand(5))
+			project.title = Faker::Lorem.sentence(Random.rand(5)+1, false, Random.rand(5))
 			project.link = Faker::Internet.url
-			project.tags = Faker::Lorem.words(Random.rand(5)).join(', ')
-			project.description = Faker::Lorem.paragraph(Random.rand(5), false, Random.rand(5))
-			project.details = Faker::Lorem.paragraph(Random.rand(50), false, Random.rand(50))
+			project.link_text = Faker::Lorem.words(Random.rand(3)+1).join(' ')
+			project.tags = Faker::Lorem.words(Random.rand(5)+1).join(', ')
+			project.description = Faker::Lorem.paragraph(Random.rand(5)+1, false, Random.rand(5))
+			project.details = Faker::Lorem.paragraph(Random.rand(50)+1, false, Random.rand(50))
 			project.save
 		end
 	end

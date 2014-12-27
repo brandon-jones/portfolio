@@ -32,6 +32,7 @@ class ProjectsController < ApplicationController
       project: { 
         title: params["project_title"], 
         tags: process_tags(params['project_tags'],params['project_title']), 
+        link_text: params["project_link_text"], 
         link: params["project_link"], 
         description: markdown(params["project_description"]), 
         details: markdown(params["project_details"]), 
@@ -88,6 +89,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :description, :link, :details, :tags)
+      params.require(:project).permit(:title, :description, :link, :link_text, :details, :tags)
     end
 end

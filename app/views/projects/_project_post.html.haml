@@ -3,9 +3,9 @@
   %h2.text-center
     =project[:title]
 .text-center
-  =format_tags(project[:tags])
+  =link_to link_text(project), url_with_protocol(project[:link]), target: "_blank"
 .text-center
-  =link_to project[:link], url_with_protocol(project[:link]), target: "_blank"
+  =format_tags(project[:tags])
 - if project[:description].present?
   .project-description
     %strong

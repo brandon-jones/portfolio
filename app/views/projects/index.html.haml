@@ -3,5 +3,5 @@
   %div.row
     %div.col-md-6.col-md-offset-3
       -@projects.reverse.each do |project|
-        = render :partial => 'project_post', locals: { project: project }
+        = render :partial => 'project_post', locals: { title: true, project: project }
         %hr

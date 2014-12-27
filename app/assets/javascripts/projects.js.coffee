@@ -7,10 +7,11 @@ $ ->
 
 reload_preview = (event) ->
 	console.log($("#project_tags").val())
-	$.get '/projects/markdown', 
+	$.post '/projects/markdown', 
     project_title: $("#project_title").val()
     project_tags: $("#project_tags").val()
     project_link: $("#project_link").val()
+    project_link_text: $("#project_link_text").val()
     project_description: $("#project_description").val()
     project_details: $("#project_details").val()
     (data) -> $(".markdown-preview").html(data)
