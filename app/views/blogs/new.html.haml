@@ -1,19 +1,13 @@
-%div.container-fluid
-  = render :partial => 'layouts/title', locals: { title: "New Blog Post" }
-  %div.row
-    %div.col-md-6.col-md-offset-3
-      %div{:role => "tabpanel"}
-        %ul.nav.nav-tabs{:role => "tablist"}
-          %li.active{:role => "presentation"}
-            %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#edit", :role => "tab"} Edit
-          %li{:id => 'presentation', :role => "presentation"}
-            %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#preview", :role => "tab"} Preview
-        .tab-content
-          #edit.tab-pane.active{:role => "tabpanel"} 
-            = render :partial => 'markdown/markdown_cheet_sheet_tabbed'
-            %hr
-            = render 'form'
-          #preview.tab-pane{:role => "tabpanel"}
-            %div{id: 'markdown-preview'}
+.container-fluid
+  = render :partial => 'layouts/title', locals: { title: "New Blog" }
+  .row
+    .col-md-8.col-md-offset-1
+      = render :partial => 'markdown/markdown_cheet_sheet_tabbed'
       %hr
-      = link_to 'Back', manage_blogs_path
+  .row
+    .col-md-6.markdown-preview
+      = render partial: 'blog_post', locals: { title: true, blog: {  } }
+    .col-md-6
+      = render 'form'
+      %hr
+      = link_to 'Back', manage_projects_path

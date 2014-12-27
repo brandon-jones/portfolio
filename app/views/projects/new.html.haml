@@ -6,7 +6,9 @@
       %hr
   .row
     .col-md-6.markdown-preview
+      %h1.text-center ~~~~Preview~~~~
       = render partial: 'project_post', locals: { title: true, project: { id: @project["id"], title: @project["title"], tags: @project["tags"], link: @project["link"], description: @project["description"], details: @project["details"] } }
+      %h1.text-center ~~~~~~~~~~~~~~~
     .col-md-6
       = render 'form'
       %hr
