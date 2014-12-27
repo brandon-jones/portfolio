@@ -7,13 +7,11 @@
       -@projects.reverse.each do |project|
         %div.bottom-border
           %h2.text-center
-            =project.title  
+            =project.title
           .text-center
             =link_to link_text(project), url_with_protocol(project[:link]), target: "_blank"
           .text-center
             =project.tags
-          %div.small.text-center
-            =local_time(project.created_at)
           %div.text-center
             = link_to 'Show', project_path(project.id)
             :escaped
