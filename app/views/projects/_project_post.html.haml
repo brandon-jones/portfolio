@@ -8,13 +8,9 @@
   =format_tags(project[:tags])
 - if project[:description].present?
   .project-description
-    %strong
-      Description:
-    %br
+    %h4 Description:
     =markdown(project[:description])
 - if project[:details].present?
   .project-details
-    %strong
-      Details:
-    %br
+    %h4 Details:
     =markdown(project[:details])
