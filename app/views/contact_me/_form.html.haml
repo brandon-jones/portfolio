@@ -1,0 +1,15 @@
+= form_tag("/send_contact", method: "post", class: "form") do
+  %div.form-group
+    = label_tag(:name_label, "Name:")
+    = text_field_tag(:name, nil, class: "form-control")
+  %div.form-group
+    = label_tag(:email_label, "Email:")
+    = email_field_tag(:email, nil, class: "form-control")
+  %div.form-group
+    = label_tag(:body_label, "Reason for contact:")
+    = text_area_tag(:body, nil, class: "form-control")
+  %div.form-group
+    = recaptcha_tags
+  %div.form-group
+    .actions
+      = submit_tag("Search",class: 'btn btn-default')

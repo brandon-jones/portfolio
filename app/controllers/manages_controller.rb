@@ -5,6 +5,9 @@ class ManagesController < ApplicationController
   end
 
   def rspec
-  	render file: '/spec/rspec_results.html', layout: false
+  	unless Rails.env == "production"
+  		render file: '/spec/rspec_results.html', layout: false and return
+  	end
+  	redirect manage_path and return
   end
 end
