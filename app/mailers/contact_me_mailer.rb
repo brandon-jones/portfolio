@@ -1,7 +1,12 @@
 class ContactMeMailer < ActionMailer::Base
-  def contact_me_send_mail(name,email,body)
-    @user = user
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
-  end
+  default from: "ZKForever.am@gmail.com"
+
+  def contact_me_send_mail(name, contact_type, contact_info, body)
+    @name = name
+    @contact_type = contact_type
+    @contact_info = contact_info
+    @body = body
+    mail(to: "brandon@brjcoding.com", subject: "#{@name} has a question")
+  end
+
 end

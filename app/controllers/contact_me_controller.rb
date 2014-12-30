@@ -4,12 +4,12 @@ class ContactMeController < ApplicationController
   end
 
   def send_contact
-    if verify_recaptcha
+    if Rails.env == "development" || verify_recaptcha
+      ContactMeMailer.contact_me_send_mail(params["name"], params["contact_type"], params["contact_info"], params["body"]).deliver
       redirect_to contact_me_path
     else
       redirect_to root_path
     end
-    # send email one day
   end
 
   private
