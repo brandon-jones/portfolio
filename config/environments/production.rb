@@ -79,8 +79,8 @@ Portfolio::Application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'brjcoding.com',
-    user_name:            ENV["PF_BRJCODING_GMAIL_USERNAME"],
-    password:             ENV["PF_BRJCODING_GMAIL_PASSWORD"],
+    user_name:            ENV["BRJCODING_GMAIL_USERNAME"],
+    password:             ENV["BRJCODING_GMAIL_PASSWORD"],
     authentication:       'plain',
     enable_starttls_auto: true  }
   # Disable automatic flushing of the log to improve performance.
