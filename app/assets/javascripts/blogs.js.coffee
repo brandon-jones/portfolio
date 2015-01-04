@@ -5,6 +5,8 @@
 $ ->
   $(".presentation").on "click", loadMarkdown
 
+  $(".notice").fadeOut(5000);
+
 loadMarkdown = (event) ->
   $.post '/blogs/markdown', 
     blog_title: $("#blog_title").val()
@@ -12,3 +14,4 @@ loadMarkdown = (event) ->
     blog_created_at: $("#blog_created_at").val()
     blog_body: $("#blog_body").val()
     (data) -> $("#markdown-preview").html(data)
+

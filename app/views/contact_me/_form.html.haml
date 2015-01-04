@@ -2,25 +2,25 @@
   .container-fluid
     .row
       .col-md-12
-        %div.form-group
-          = label_tag(:name_label, "Name:")
-          = text_field_tag(:name, nil, class: "form-control")
-        %div.form-group
-          = label_tag(:contact_info_label, "Contact info:")
-          .row
-            .col-md-4
-              %select.form-control{:name => "contact_type"}
-                %option{:selected => "selected",:value => "email"} Email
-                %option{:value => "phone-call"} Phone Call
-                %option{:value => "phone-text"} Phone Text
-                %option{:value => "other"} Other
-            .col-md-8
-              = text_field_tag(:contact_info, nil, class: "form-control")
-        %div.form-group
-          = label_tag(:body_label, "Reason for contact:")
-          = text_area_tag(:body, nil, class: "form-control")
-        %div.form-group
-          = recaptcha_tags
+        %div.form-group{:class => "#{errors('name')}"}
+          %p
+            = label_tag(:name_label, "Name:")
+            = errors_label('name').html_safe
+          = text_field_tag(:name, params["name"], class: "form-control")
+        %div.form-group{:class => "#{errors('contact_info')}"}
+          %p
+            = label_tag(:contact_info_label, "Contact info:")
+            = errors_label('contact_info').html_safe
+          = text_field_tag(:contact_info, params["contact_info"], class: "form-control")
+        %div.form-group{:class => "#{errors('body')}"}
+          %p
+            = label_tag(:body_label, "Reason for contact:")
+            = errors_label('body').html_safe
+          = text_area_tag(:body, params["body"], class: "form-control")
+        %div.form-group{:class => "#{errors('captcha')}"}
+          %p
+            = errors_label('captcha').html_safe
+            = recaptcha_tags
         %div.form-group
           .actions
             = submit_tag("Send Question",class: 'btn btn-default')

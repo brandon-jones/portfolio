@@ -27,7 +27,7 @@ Portfolio::Application.routes.draw do
 
   get 'manage/rspec', to: 'manages#rspec'
 
-  get 'contact_me', to: 'contact_me#contact_me_form'
+  get 'contact_me', to: 'contact_me#send_contact'
 
   post 'send_contact', to: 'contact_me#send_contact'
 
