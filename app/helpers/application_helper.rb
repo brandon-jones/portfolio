@@ -20,4 +20,9 @@ module ApplicationHelper
 		return '' unless url
     /^http/i.match(url) ? url : "http://#{url}"
   end
+
+  def current_page(page)
+  	return 'active' if page == params["controller"]
+  	return ''
+  end
 end

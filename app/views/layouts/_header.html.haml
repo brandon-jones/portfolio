@@ -1,18 +1,35 @@
-%div.header
-	%div.header-left
-		=link_to 'Blog', root_path, class: 'no-decorations'
-		=link_to 'About Me', about_me_path, class: 'no-decorations header-links'
-		=link_to 'Projects', projects_path, class: 'no-decorations header-links'
-	%div.header-right
-		%div.twitter.inline.header-img-link
-			%a{:href => "https://twitter.com/brjcoding", :target => "_blank", :class => "no-decorations"}
-				%i.fa.fa-twitter.fa-2x
-		%div.github.inline.header-img-link
-			%a{:href => "https://github.com/brandon-jones", :target => "_blank", :class => "no-decorations"}
-				%i.fa.fa-github.fa-2x
-		%div.linkedin-square.inline.header-img-link
-			%a{:href => "https://www.linkedin.com/profile/view?id=265527253&trk=nav_responsive_tab_profile", :target => "_blank", :class => "no-decorations"}
-				%i.fa.fa-linkedin-square.fa-2x
-		%div.envelope.inline.header-img-link
-			=link_to contact_me_path, class: "no-decorations" do
-				%i.fa.fa-envelope.fa-2x
+%nav.navbar.navbar-default
+  .container-fluid 
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "/blogs"} BRJcoding
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li{class: "#{current_page('blogs')}"}
+          =link_to 'Blog', root_path, class: 'no-decorations'
+          %span.sr-only (current)
+        %li{class: "#{current_page('about_me')}"}
+          =link_to 'About Me', about_me_path, class: 'no-decorations'
+        %li{class: "#{current_page('projects')}"}
+          =link_to 'Projects', projects_path, class: 'no-decorations'
+      %div.header-right
+        %div.twitter.inline.header-img-link
+          %a{:href => "https://twitter.com/brjcoding", :target => "_blank", :class => "no-decorations"}
+            %i.fa.fa-twitter.fa-2x
+        %div.github.inline.header-img-link
+          %a{:href => "https://github.com/brandon-jones", :target => "_blank", :class => "no-decorations"}
+            %i.fa.fa-github.fa-2x
+        %div.linkedin-square.inline.header-img-link
+          %a{:href => "https://www.linkedin.com/profile/view?id=265527253&trk=nav_responsive_tab_profile", :target => "_blank", :class => "no-decorations"}
+            %i.fa.fa-linkedin-square.fa-2x
+        %div.envelope.inline.header-img-link
+          =link_to contact_me_path, class: "no-decorations" do
+            %i.fa.fa-envelope.fa-2x
+    / /.navbar-collapse
+  / /.container-fluid
