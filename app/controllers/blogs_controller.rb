@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate, except: :index
+  before_action :authenticate, except: [:index, :search]
 
   # GET /blogs
   # GET /blogs.json
@@ -12,6 +12,11 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+  end
+
+  def search
+    @blogs = Blog.where("tags LIKE :term", term: "%#{params[:blog_search]}%")
+    render partial: 'search'
   end
 
   def manage

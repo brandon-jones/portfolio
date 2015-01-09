@@ -7,6 +7,8 @@ $ ->
 
   $(".notice").fadeOut(5000);
 
+  $("#blogs-search").on "keyup", blogSearch
+
 loadMarkdown = (event) ->
   $.post '/blogs/markdown', 
     blog_title: $("#blog_title").val()
@@ -15,3 +17,7 @@ loadMarkdown = (event) ->
     blog_body: $("#blog_body").val()
     (data) -> $("#markdown-preview").html(data)
 
+blogSearch = (event) ->
+  $.post '/blogs/search',
+    blog_search: $("#blogs-search").val()
+    (data) -> $("#page-content").html(data)

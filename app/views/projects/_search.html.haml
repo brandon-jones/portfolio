@@ -1,0 +1,7 @@
+%div.container-fluid
+  = render :partial => 'layouts/title', locals: { title: "Project search results" }
+  %div.row
+    %div.col-md-6.col-md-offset-3
+      -@projects.reverse.each do |project|
+        = render :partial => 'project_post', locals: { title: true, project: project }
+        %hr

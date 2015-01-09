@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-	before_action :authenticate, except: :index	
+	before_action :authenticate, except: [:index, :search]	
   # GET /projects
   # GET /projects.json
   def index
@@ -10,6 +10,11 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+  end
+
+  def search
+    @projects = Project.where("tags LIKE :term", term: "%#{params[:project_search]}%")
+    render partial: 'search'
   end
 
   # GET /projects/new

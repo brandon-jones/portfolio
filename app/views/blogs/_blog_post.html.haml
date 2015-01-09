@@ -1,7 +1,7 @@
 %h2.text-center
   =blog[:title]
 .text-center
-  =format_tags(blog[:tags])
+  =blog[:tags]
 .small.text-center
   - if blog[:created_at].present?
     =local_time(blog[:created_at])

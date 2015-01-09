@@ -5,6 +5,10 @@ Portfolio::Application.routes.draw do
 
   post '/blogs/markdown', to: 'blogs#get_markdown_form'
 
+  post '/blogs/search', to: 'blogs#search'
+  
+  post '/projects/search', to: 'projects#search'
+
   post '/projects/markdown', to: 'projects#get_markdown_form'
 
   resources :blogs

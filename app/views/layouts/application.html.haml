@@ -26,4 +26,5 @@
     %div.header-filler
     -if defined?(@main_image) && @main_image == true
       %div.main-image
-    = yield
+    #page-content
+      = yield

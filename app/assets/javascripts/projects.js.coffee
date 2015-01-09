@@ -5,6 +5,8 @@
 $ ->
   $(".rerender-on-keyup").on "keyup", reload_preview
 
+  $("#projects-search").on "keyup", projectSearch
+
 reload_preview = (event) ->
 	console.log($("#project_tags").val())
 	$.post '/projects/markdown', 
@@ -15,3 +17,8 @@ reload_preview = (event) ->
     project_description: $("#project_description").val()
     project_details: $("#project_details").val()
     (data) -> $(".markdown-preview").html(data)
+
+projectSearch = (event) ->
+  $.post '/projects/search',
+    project_search: $("#project-search").val()
+    (data) -> $("#page-content").html(data)

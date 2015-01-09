@@ -18,7 +18,11 @@
           =link_to 'About Me', about_me_path, class: 'no-decorations'
         %li{class: "#{current_page('projects')}"}
           =link_to 'Projects', projects_path, class: 'no-decorations'
-      %div.header-right
+      - if params["controller"]=='projects' || params["controller"]=='blogs'
+        %form.navbar-form.navbar-left{:role => "search"}
+          .form-group
+            %input.form-control{:placeholder => "Search", :type => "text", :id => "#{params["controller"]}-search"}
+      %div.header-right.control-width
         %div.twitter.inline.header-img-link
           %a{:href => "https://twitter.com/brjcoding", :target => "_blank", :class => "no-decorations"}
             %i.fa.fa-twitter.fa-2x
