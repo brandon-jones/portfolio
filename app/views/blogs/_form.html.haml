@@ -11,17 +11,17 @@
   %div.form-group
     = f.label :title
     %br
-    = f.text_field :title, class: 'blog-title form-control'
+    = f.text_field :title, class: 'update-markdown form-control'
   %div.form-group
     = f.label :tags
     %br
-    = f.text_field :tags, class: 'blog-title form-control'
+    = f.text_field :tags, class: 'update-markdown form-control'
   %div.form-group
     = f.hidden_field :created_at, created_at: @blog.created_at
   %div.form-group
     = f.label :body
     %br
-    = f.text_area :body, class: 'new-blog form-control'
+    = f.text_area :body, class: 'new-blog update-markdown form-control'
   %div.form-group
     .actions
       = f.submit 'Submit', class: 'btn btn-default'

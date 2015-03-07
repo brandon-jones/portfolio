@@ -10,8 +10,10 @@ Portfolio::Application.routes.draw do
   end
 
   resources :projects do
-    post 'search'
-    post 'markdown'
+    collection do
+      post 'search'
+      post 'markdown'
+    end
   end
 
   get 'manage', to: 'manages#index'

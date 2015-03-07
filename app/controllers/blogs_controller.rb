@@ -23,16 +23,8 @@ class BlogsController < ApplicationController
     @blogs = Blog.all
   end
 
-  def get_markdown_form
-    render partial: 'blog_post', locals: { 
-      blog: { 
-        title: params["blog_title"], 
-        tags: process_tags(params['blog_tags'],params['blog_title']), 
-        created_at: params["blog_created_at"], 
-        body: markdown(params["blog_body"]) 
-        } 
-      }
-    return
+  def markdown
+    render partial: 'blog_post', locals: { blog: params["blog"] } and return
   end
 
   # GET /blogs/new

@@ -1,33 +1,62 @@
-var blogSearch, loadMarkdown;
-
 $(function() {
+
+  var idleTimer;
+  function resetTimer(){
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(loadMarkdown,700);
+  }
+    $(".update-markdown").on("keyup", resetTimer);
+  resetTimer(); // Start the timer when the page loads
+
   textAreaPointer();
-  $(".presentation").on("click", loadMarkdown);
+  loadMarkdown();
   $(".notice").fadeOut(5000);
   return $("#blogs-search").on("keyup", blogSearch);
 });
 
 loadMarkdown = function(event) {
-  return $.post('/blogs/markdown', {
-    blog_title: $("#blog_title").val(),
-    blog_tags: $("#blog_tags").val(),
-    blog_created_at: $("#blog_created_at").val(),
-    blog_body: $("#blog_body").val()
-  }, function(data) {
-    return $("#markdown-preview").html(data);
-  });
+  if ($('#blog_body').length > 0) {
+    var title = $("#blog_title").val();
+    var tags = $("#blog_tags").val();
+    var created_at = $("#blog_created_at").val();
+    var body = $("#blog_body").val();
+    if (title.length > 0 || tags.length > 0 || created_at.length > 0 || body.length > 0 ) {
+      return $.ajax({
+        type: 'POST',
+        url: '/blogs/markdown',
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        data: {
+          blog: {
+            title: title,
+            tags: tags,
+            created_at: created_at,
+            body: body
+          }
+        },
+        success: function(data, textStatus) {
+          keypress = false;
+          return $('.markdown-preview').html(data);
+        }
+      });
+    }
+  }
 };
 
 blogSearch = function(event) {
-  return $.post('/blogs/search', {
-    blog_search: $("#blogs-search").val()
-  }, function(data) {
-    return $("#page-content").html(data);
+  return $.ajax({
+    type: 'POST',
+    url: '/blogs/search',
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    data: {
+      blog_search: $("#blogs-search").val()
+    },
+    success: function(data, textStatus) {
+      return;
+    }
   });
 };
 
 textAreaPointer = function(e) {
-  console.log('test');
   $("textarea").mousemove(function(e) {
     var myPos = $(this).offset();
     myPos.bottom = $(this).offset().top + $(this).outerHeight();
