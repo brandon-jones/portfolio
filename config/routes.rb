@@ -1,35 +1,29 @@
 Portfolio::Application.routes.draw do
   
-
-  get '/manage/projects', to: 'projects#manage'
-
-  post '/blogs/markdown', to: 'blogs#get_markdown_form'
-
-  post '/blogs/search', to: 'blogs#search'
-  
-  post '/projects/search', to: 'projects#search'
-
-  post '/projects/markdown', to: 'projects#get_markdown_form'
-
-  resources :blogs
-
-  resources :projects
-
   root 'blogs#index'
 
+  resources :blogs do
+    collection do
+      post 'search'
+      post 'markdown'
+    end
+  end
+
+  resources :projects do
+    post 'search'
+    post 'markdown'
+  end
+
+  get 'manage', to: 'manages#index'
+  get 'manage/projects', to: 'projects#manage'
   get 'manage/blogs', to: 'blogs#manage'
+  get 'manage/about_me', to: 'about_me#edit'
+  post 'manage/about_me', to: 'about_me#edit', as: 'edit_about_me'
+  get 'manage/rspec', to: 'manages#rspec'
 
   get 'about_me', to: 'about_me#index'
 
   get 'projects', to: 'projects#index'
-
-  get 'manage', to: 'manages#index'
-
-  post 'about_me/edit', to: 'about_me#edit', as: 'edit_about_me'
-
-  get 'manage/about_me', to: 'about_me#edit'
-
-  get 'manage/rspec', to: 'manages#rspec'
 
   get 'contact_me', to: 'contact_me#send_contact'
 

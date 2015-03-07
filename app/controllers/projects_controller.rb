@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
   	@projects = Project.all
   end
 
-  def get_markdown_form
+  def markdown
     render partial: 'project_post', locals: { 
       title: true,
       project: { 
