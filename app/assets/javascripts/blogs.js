@@ -16,10 +16,11 @@ $(function() {
 
 loadMarkdown = function(event) {
   if ($('#blog_body').length > 0) {
-    var title = $("#blog_title").val();
-    var tags = $("#blog_tags").val();
-    var created_at = $("#blog_created_at").val();
-    var body = $("#blog_body").val();
+    var title, tags, created_at, body;
+    title = $("#blog_title").val();
+    tags = $("#blog_tags").val();
+    created_at = $("#blog_created_at").val();
+    body = $("#blog_body").val();
     if (title.length > 0 || tags.length > 0 || created_at.length > 0 || body.length > 0 ) {
       return $.ajax({
         type: 'POST',
