@@ -9,7 +9,6 @@ $(function() {
 });
 
 loadMarkdown = function(event) {
-  console.log('test');
   if ($('#blog_body').length > 0) {
     var title, tags, created_at, body;
     title = $("#blog_title").val();

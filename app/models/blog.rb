@@ -2,6 +2,8 @@ class Blog < ActiveRecord::Base
 
   before_save :set_tags
 
+  acts_as_disqusable
+
   def tags_array
   	return self.tags.present? ? self.tags.split(',') : []
   end
