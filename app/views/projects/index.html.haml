@@ -6,9 +6,12 @@
         %a{ href: "#{project_path(project)}" }
           %h2
             =project[:title]
-        - project.tags_array.each do |tag|
-          %span.badge
-            = tag
+        %p
+          - project.tags_array.each do |tag|
+            %span.badge
+              = tag
         - if project[:description].present?
+          %strong
+            Description:
           =red_markdown(project[:description])
         %hr
