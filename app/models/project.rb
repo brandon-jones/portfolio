@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
 	before_save :set_tags
 
 	def tags_array
-  	return self.tags.split(',')
+  	return self.tags.present? ? self.tags.split(',') : []
   end
 
   private
