@@ -58,8 +58,10 @@ test:
 
 production:
   adapter: postgresql
-  host: 202.2.92.134
+  host: <%= ENV['PF_DB_HOST'] %>
   port: 5432
   encoding: unicode
-  database: db11491
+  database: <%= ENV['PF_DB_DATABASE'] %>
   pool: 5
+  username: <%= ENV['PF_DB_USER'] %>
+  password: <%= ENV['PF_DB_PASSWORD'] %>
