@@ -1,6 +1,6 @@
 %h2.text-center
   =blog[:title]
-- if blog[:tags].present?
+- if blog[:tags].present? || blog[:title].present?
   .text-center
     %strong
       Tags: 

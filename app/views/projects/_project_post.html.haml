@@ -5,7 +5,7 @@
     %strong
       Link to Work:
     =link_to link_text(project), url_with_protocol(project[:link]), target: "_blank"
-- if project[:tags].present?
+- if project[:tags].present? || project[:title].present?
   %p
     %strong
       Tags: 

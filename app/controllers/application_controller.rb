@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
 	helper_method :red_markdown
 
 	def process_tags(tags,title)
-		return '' unless tags.present?
 		tags = tags.split(',').map{ |t| t.strip.downcase }.uniq
 		tags << title.downcase if title && tags && title.present? && !tags.include?(title.downcase)
 		return tags.join(', ') if tags
