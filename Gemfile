@@ -31,6 +31,8 @@ gem 'haml', '~> 4.0.5'
 
 gem "recaptcha", :require => "recaptcha/rails" # captcha
 
+gem 'rails_12factor', group: :production
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 
