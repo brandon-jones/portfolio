@@ -2,11 +2,12 @@
   = render :partial => 'layouts/title', locals: { title: @blog.title }
   %div.row
     %div.col-md-6.col-md-offset-3
-      .text-center
-        Tags: 
-        =@blog.tags
       .small.text-center
         =local_time(@blog.created_at)
+      .text-center
+        - @blog.tags_array.each do |tag|
+          %span.badge
+            = tag
       .blog-body
         =red_markdown(@blog.body)
       %hr

@@ -1,0 +1,9 @@
+%h2.text-center
+  =blog[:title]
+.text-center
+  =blog[:tags]
+.small.text-center
+  - if blog[:created_at].present?
+    =local_time(blog[:created_at])
+.blog-body
+  =markdown(blog[:body])
