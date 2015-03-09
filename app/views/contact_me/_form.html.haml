@@ -14,9 +14,9 @@
           = text_field_tag(:contact_info, params["contact_info"], class: "form-control")
         %div.form-group{:class => "#{errors('body')}"}
           %p
-            = label_tag(:body_label, "Reason for contact:")
+            = label_tag(:contact_me_body_label, "Reason for contact:")
             = errors_label('body').html_safe
-          = text_area_tag(:body, params["body"], class: "form-control")
+          = text_area_tag(:contact_me_body, params["body"], class: "form-control")
         %div.form-group{:class => "#{errors('captcha')}"}
           %p
             = errors_label('captcha').html_safe

@@ -14,7 +14,7 @@ class ContactMeController < ApplicationController
         render contact_me_form, locals: { contact_me: @contact_me } and return
       else
         flash[:notice] = "Email successfully sent"
-        ContactMeMailer.contact_me_send_mail(params["name"], params["contact_type"], params["contact_info"], params["body"]).deliver
+        ContactMeMailer.contact_me_send_mail(params["name"], params["contact_type"], params["contact_info"], params["body"]).deliver_now
         redirect_to root_path
       end
     end
