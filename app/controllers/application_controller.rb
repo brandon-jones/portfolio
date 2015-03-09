@@ -28,9 +28,4 @@ class ApplicationController < ActionController::Base
 	end
 	helper_method :process_tags
 
-	def allow_ajax_request_from_other_domains
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Allow-Headers'] = '*'
- 	end
 end
