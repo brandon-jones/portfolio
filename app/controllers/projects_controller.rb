@@ -32,17 +32,7 @@ class ProjectsController < ApplicationController
   end
 
   def markdown
-    render partial: 'project_post', locals: { 
-      title: true,
-      project: { 
-        title: params["project_title"], 
-        tags: process_tags(params['project_tags'],params['project_title']), 
-        link_text: params["project_link_text"], 
-        link: params["project_link"], 
-        description: red_markdown(params["project_description"]), 
-        details: red_markdown(params["project_details"]), 
-        } 
-      }
+    render partial: 'project_post', locals: { title: true, project: params["project"] }
     return
   end
 

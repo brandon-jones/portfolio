@@ -9,9 +9,10 @@
   %p
     %strong
       Tags: 
-    - project.tags_array.each do |tag|
-      %span.badge
-        = tag
+    - process_tags(project[:tags],project[:title]).split(',').each do |tag|
+      - if tag.present?
+        %span.badge
+          = tag
 - if project[:description].present?
   .project-description
     %strong Description:

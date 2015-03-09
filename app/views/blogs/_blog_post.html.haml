@@ -1,7 +1,13 @@
 %h2.text-center
   =blog[:title]
-.text-center
-  =blog[:tags]
+- if blog[:tags].present?
+  .text-center
+    %strong
+      Tags: 
+    - process_tags(blog[:tags],blog[:title]).split(',').each do |tag|
+      - if tag.present?
+        %span.badge
+          = tag
 .small.text-center
   - if blog[:created_at].present?
     =local_time(blog[:created_at])

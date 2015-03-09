@@ -27,4 +27,5 @@ class ApplicationController < ActionController::Base
 		return tags.join(', ') if tags
 		return ''
 	end
+	helper_method :process_tags
 end

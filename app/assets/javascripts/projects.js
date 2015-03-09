@@ -21,12 +21,14 @@ reload_preview = function(event) {
     url: '/projects/markdown',
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     data: {
-      project_title: $("#project_title").val(),
-      project_tags: $("#project_tags").val(),
-      project_link: $("#project_link").val(),
-      project_link_text: $("#project_link_text").val(),
-      project_description: $("#project_description").val(),
-      project_details: $("#project_details").val()
+      project: {
+        title: $("#project_title").val(),
+        tags: $("#project_tags").val(),
+        link: $("#project_link").val(),
+        link_text: $("#project_link_text").val(),
+        description: $("#project_description").val(),
+        details: $("#project_details").val()
+      }
     },
     success: function(data, textStatus) {
       keypress = false;
