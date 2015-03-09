@@ -4,5 +4,7 @@ $(document).ready(function() {
 
 sizeTextArea = function(e) {
   var textArea = $('#about_me');
-  textArea.height(textArea[0].scrollHeight);
+  if (textArea.length > 0) {
+  	textArea.height(textArea[0].scrollHeight);
+  }
 };

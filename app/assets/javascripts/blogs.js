@@ -5,13 +5,13 @@ $(function() {
     clearTimeout(idleTimer);
     idleTimer = setTimeout(loadMarkdown,700);
   }
-    $(".update-markdown").on("keyup", resetTimer);
+  $(".update-markdown").on("keyup", resetTimer);
   resetTimer(); // Start the timer when the page loads
 
   textAreaPointer();
   loadMarkdown();
   $(".notice").fadeOut(5000);
-  return $("#blogs-search").on("keyup", blogSearch);
+  return;
 });
 
 loadMarkdown = function(event) {
@@ -41,20 +41,6 @@ loadMarkdown = function(event) {
       });
     }
   }
-};
-
-blogSearch = function(event) {
-  return $.ajax({
-    type: 'POST',
-    url: '/blogs/search',
-    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-    data: {
-      blog_search: $("#blogs-search").val()
-    },
-    success: function(data, textStatus) {
-      return;
-    }
-  });
 };
 
 textAreaPointer = function(e) {

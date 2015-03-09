@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   	end
 	end
 
-	def markdown(words)
+	def red_markdown(words)
 		words = '' unless words
 		work = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 		work.render(words).html_safe

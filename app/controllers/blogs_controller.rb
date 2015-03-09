@@ -14,11 +14,6 @@ class BlogsController < ApplicationController
   def show
   end
 
-  def search
-    @blogs = Blog.where("tags LIKE :term", term: "%#{params[:blog_search]}%")
-    render partial: 'search'
-  end
-
   def manage
     @blogs = Blog.all
   end

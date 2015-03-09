@@ -4,14 +4,12 @@ Portfolio::Application.routes.draw do
 
   resources :blogs do
     collection do
-      post 'search'
       post 'markdown'
     end
   end
 
   resources :projects do
     collection do
-      post 'search'
       post 'markdown'
     end
   end

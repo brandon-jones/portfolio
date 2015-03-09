@@ -1,16 +1,13 @@
 .container-fluid
   = render :partial => 'layouts/title', locals: { title: "New Project Post" }
   .row
-    .col-md-8.col-md-offset-1
+    .col-md-8.col-md-offset-2.markdown-border
       = render :partial => 'markdown/markdown_cheet_sheet_tabbed'
-      %hr
   .row
     .col-md-6
       %h1.text-center ~~~~Preview~~~~
-      .markdown-preview
-        = render partial: 'project_post', locals: { title: true, project: { id: @project["id"], title: @project["title"], tags: @project["tags"], link: @project["link"], link_text: @project["link_text"], description: @project["description"], details: @project["details"] } }
+      = render partial: 'project_post', locals: { title: true, project: { id: @project["id"], title: @project["title"], tags: @project["tags"], link: @project["link"], link_text: @project["link_text"], description: @project["description"], details: @project["details"] } }
       %h1.text-center ~~~~~~~~~~~~~~~
-    .col-md-6
+    .col-md-6.markdown-preview-border
       = render 'form'
-      %hr
       = link_to 'Back', manage_projects_path

@@ -5,6 +5,14 @@
 	padding-bottom: .3em;
 }
 
+.markdown-preview {
+	border-right: 1px solid #EEEEEE;
+}
+
+.markdown-preview-border {
+	border-left: 1px solid #EEEEEE;
+}
+
 li.active {
 	a {
 		background-color: #bdbdbd;
@@ -14,11 +22,6 @@ li.active {
 .markdown-row {
 	height: 8.3em;
 	margin-top: 10px;
-
-}
-
-.markdown-preview {
-  border-right: 1px solid #EEEEEE;
 }
 
 .markdown-border {

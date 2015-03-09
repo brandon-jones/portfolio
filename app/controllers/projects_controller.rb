@@ -39,8 +39,8 @@ class ProjectsController < ApplicationController
         tags: process_tags(params['project_tags'],params['project_title']), 
         link_text: params["project_link_text"], 
         link: params["project_link"], 
-        description: markdown(params["project_description"]), 
-        details: markdown(params["project_details"]), 
+        description: red_markdown(params["project_description"]), 
+        details: red_markdown(params["project_details"]), 
         } 
       }
     return
