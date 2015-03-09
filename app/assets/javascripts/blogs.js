@@ -1,12 +1,6 @@
 $(function() {
 
-  var idleTimer;
-  function resetTimer(){
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(loadMarkdown,700);
-  }
-  $(".update-markdown").on("keyup", resetTimer);
-  resetTimer(); // Start the timer when the page loads
+   // Start the timer when the page loads
 
   textAreaPointer();
   loadMarkdown();
@@ -15,6 +9,7 @@ $(function() {
 });
 
 loadMarkdown = function(event) {
+  console.log('test');
   if ($('#blog_body').length > 0) {
     var title, tags, created_at, body;
     title = $("#blog_title").val();

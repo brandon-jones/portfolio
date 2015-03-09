@@ -25,3 +25,12 @@
   %div.form-group
     .actions
       = f.submit 'Submit', class: 'btn btn-default'
+
+:javascript
+  resetTimer();
+  var idleTimer;
+  function resetTimer(){
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(loadMarkdown,700);
+  }
+  $(".update-markdown").on("keyup", resetTimer);

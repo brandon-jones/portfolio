@@ -1,20 +1,22 @@
 %h1.text-center
-  =@project[:title]
-%p
-  %strong
-    Link to Work:
-  =link_to link_text(@project), url_with_protocol(@project[:link]), target: "_blank"
-%p
-  %strong
-    Tags: 
-  - @project.tags_array.each do |tag|
-    %span.badge
-      = tag
-- if @project[:description].present?
+  =project[:title]
+- if project[:link]
+  %p
+    %strong
+      Link to Work:
+    =link_to link_text(project), url_with_protocol(project[:link]), target: "_blank"
+- if project[:tags].present?
+  %p
+    %strong
+      Tags: 
+    - project.tags_array.each do |tag|
+      %span.badge
+        = tag
+- if project[:description].present?
   .project-description
     %strong Description:
-    =red_markdown(@project[:description])
-- if @project[:details].present?
+    =red_markdown(project[:description])
+- if project[:details].present?
   .project-details
     %strong Details:
-    =red_markdown(@project[:details])
+    =red_markdown(project[:details])
