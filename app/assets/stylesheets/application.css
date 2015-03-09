@@ -11,4 +11,5 @@
  *= require_self
  *= require scaffold
  *= require header
+ *= require_tree .
  */

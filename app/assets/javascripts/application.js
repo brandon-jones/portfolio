@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require disqus_rails
 //= require local_time
+//= require_tree .
