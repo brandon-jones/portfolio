@@ -63,6 +63,8 @@ GEM
     coffee-script-source (1.9.1)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
+    disqus_rails (0.0.6)
+      rails
     erubis (2.7.0)
     execjs (2.3.0)
     factory_girl (4.5.0)
@@ -246,6 +248,7 @@ DEPENDENCIES
   better_errors (~> 1.1.0)
   binding_of_caller (~> 0.7.2)
   coffee-rails (~> 4.1.0)
+  disqus_rails
   factory_girl_rails
   faker (~> 1.4.3)
   guard-bundler

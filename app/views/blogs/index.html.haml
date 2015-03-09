@@ -4,6 +4,15 @@
     %div.col-md-6.col-md-offset-3
       - flash.each do |name, msg|
         = content_tag :div, msg, class: name
-      -@blogs.reverse.each do |blog|
-        = render :partial => 'blog_post', locals: { blog: blog }
-        %hr
+      - if @blogs.length > 0
+        -@blogs.reverse.each do |blog|
+          %a{ href: "#{blog_path(blog)}" }
+            %h2
+              =blog[:title]
+          - if blog[:created_at].present?
+            %p
+              =local_time(blog[:created_at])
+          - blog.tags_array.each do |tag|
+            %span.badge
+              = tag
+          %hr

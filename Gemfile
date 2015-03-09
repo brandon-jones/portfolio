@@ -33,6 +33,8 @@ gem "recaptcha", require: "recaptcha/rails", github: "ambethia/recaptcha"
 
 gem 'rails_12factor', group: :production
 
+gem 'disqus_rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 

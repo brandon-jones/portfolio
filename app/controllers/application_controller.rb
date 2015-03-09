@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
 		work = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 		work.render(words).html_safe
 	end
+	helper_method :red_markdown
 
 	def process_tags(tags,title)
 		return '' unless tags.present?

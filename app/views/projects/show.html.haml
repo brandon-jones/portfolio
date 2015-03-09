@@ -1,6 +1,25 @@
 %div.container-fluid
-  = render :partial => 'layouts/title', locals: { title: @project.title }
   %div.row
     %div.col-md-6.col-md-offset-3
-      = render :partial => 'project_post', locals: { title: false, project: @project }
+      %h1.text-center
+        =@project[:title]
+      %p
+        %strong
+          Link to Work:
+        =link_to link_text(@project), url_with_protocol(@project[:link]), target: "_blank"
+      %p
+        %strong
+          Tags: 
+        - @project.tags_array.each do |tag|
+          %span.badge
+            = tag
+      - if @project[:description].present?
+        .project-description
+          %strong Description:
+          =red_markdown(@project[:description])
+      - if @project[:details].present?
+        .project-details
+          %strong Details:
+          =red_markdown(@project[:details])
       =link_to 'Back', manage_projects_path
+      - disqus_thread
