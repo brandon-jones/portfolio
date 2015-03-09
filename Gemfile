@@ -29,7 +29,7 @@ gem 'redcarpet', '~> 3.2.0'
 
 gem 'haml', '~> 4.0.5'
 
-gem "recaptcha", :require => "recaptcha/rails" # captcha
+gem "recaptcha", require: "recaptcha/rails", github: "ambethia/recaptcha"
 
 gem 'rails_12factor', group: :production
 
