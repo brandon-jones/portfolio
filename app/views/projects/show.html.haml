@@ -10,7 +10,7 @@
       %p
         %strong
           Tags: 
-        - @project.split(',').each do |tag|
+        - @project[:tags].split(',').each do |tag|
           %span.badge
             = tag
       - if @project[:description].present?

@@ -5,7 +5,7 @@
       .small.text-center
         =local_time(@blog.created_at)
       .text-center
-        - @blog.tags_array.each do |tag|
+        - @blog["tags"].split(',').each do |tag|
           %span.badge
             = tag
       .blog-body
