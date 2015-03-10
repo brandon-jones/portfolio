@@ -7,7 +7,7 @@
           %h2
             =project[:title]
         %p
-          - project.tags_array.each do |tag|
+          - project["tags"].split(',').each do |tag|
             %span.badge
               = tag
         - if project[:description].present?
