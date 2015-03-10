@@ -9,7 +9,7 @@
   %p
     %strong
       Tags: 
-    - process_tags(project[:tags],project[:title]).split(',').each do |tag|
+    - project[:tags].split(',').each do |tag|
       - if tag.present?
         %span.badge
           = tag

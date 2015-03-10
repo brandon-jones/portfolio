@@ -1,6 +1,6 @@
 Portfolio::Application.routes.draw do
   
-  root 'blogs#index'
+  root 'projects#index'
 
   resources :blogs do
     collection do

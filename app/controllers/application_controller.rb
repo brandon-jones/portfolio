@@ -20,12 +20,4 @@ class ApplicationController < ActionController::Base
 	end
 	helper_method :red_markdown
 
-	def process_tags(tags,title)
-		tags = tags.split(',').map{ |t| t.strip.downcase }.uniq
-		tags << title.downcase if title && tags && title.present? && !tags.include?(title.downcase)
-		return tags.join(', ') if tags
-		return ''
-	end
-	helper_method :process_tags
-
 end

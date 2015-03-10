@@ -4,7 +4,7 @@
   .text-center
     %strong
       Tags: 
-    - process_tags(blog[:tags],blog[:title]).split(',').each do |tag|
+    - blog[:tags].split(',').each do |tag|
       - if tag.present?
         %span.badge
           = tag

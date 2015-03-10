@@ -11,13 +11,12 @@
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li{class: "#{current_page('blogs')}"}
-          =link_to 'Blog', root_path, class: 'no-decorations'
-          %span.sr-only (current)
-        %li{class: "#{current_page('about_me')}"}
-          =link_to 'About Me', about_me_path, class: 'no-decorations'
         %li{class: "#{current_page('projects')}"}
           =link_to 'Projects', projects_path, class: 'no-decorations'
+        %li{class: "#{current_page('about_me')}"}
+          =link_to 'About Me', about_me_path, class: 'no-decorations'
+        %li{class: "#{current_page('blogs')}"}
+          =link_to 'Blog', root_path, class: 'no-decorations'
       %div.header-right.control-width
         %div.twitter.inline.header-img-link
           %a{:href => "https://twitter.com/brjcoding", :target => "_blank", :class => "no-decorations"}
