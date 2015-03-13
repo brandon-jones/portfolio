@@ -6,7 +6,7 @@ class ContactMeMailer < ActionMailer::Base
     @contact_type = contact_type
     @contact_info = contact_info
     @body = body
-    mail(to: "brandon@brjcoding.com", subject: "#{@name} has a question")
+    mail(to: "brandon.jones9@gmail.com", subject: "#{@name} has a question")
   end
 
 end
