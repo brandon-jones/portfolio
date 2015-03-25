@@ -1,7 +1,7 @@
 %div.container-fluid
   = render :partial => 'layouts/title', locals: { title: @blog.title }
   %div.row
-    %div.col-md-6.col-md-offset-3
+    %div.col-md-6.col-md-offset-3.text-wrapper
       .small.text-center
         =local_time(@blog.created_at)
       .text-center

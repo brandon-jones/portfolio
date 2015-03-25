@@ -3,15 +3,15 @@
   %div.row
     %div.col-md-6.col-md-offset-3
       -@projects.reverse.each do |project|
-        %a{ href: "#{project_path(project)}" }
-          %h2
-            =project[:title]
-        %p
-          - project["tags"].split(',').each do |tag|
-            %span.badge
-              = tag
-        - if project[:description].present?
-          %strong
-            Description:
-          =red_markdown(project[:description])
-        %hr
+        .text-wrapper
+          %a{ href: "#{project_path(project)}" }
+            %h2
+              =project[:title]
+          %p
+            - project["tags"].split(',').each do |tag|
+              %span.badge
+                = tag
+          - if project[:description].present?
+            %strong
+              Description:
+            =red_markdown(project[:description])

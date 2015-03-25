@@ -1,7 +1,7 @@
-namespace :generator do
+namespace :gen do
 
 	desc "Creates many blogs"
-	task :blog_posts => :environment do
+	task :blog => :environment do
 		15.times do |i|
 			blog = BlogPost.new()
 			blog = blog.blog_generator

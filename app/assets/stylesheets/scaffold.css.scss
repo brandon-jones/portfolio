@@ -10,7 +10,15 @@
 // }
 
 body {
+
+}
+
+#background-image {
   padding-bottom: 5em;
+  background-image: url("milky_way.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }
 
 .markdown-display {
@@ -121,6 +129,29 @@ body {
 
 .top-border {
   border-top: thick solid black;
+}
+
+.text-wrapper {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 25px;
+  margin-bottom: 2em;
+  padding: 1em 1em 1em 1em;
+  opacity: 0.80;
+  & h2 {
+    margin-top: 0;
+    margin-bottom: .25em;
+  }
+}
+
+#main-title {
+  border: 1px solid black;
+  border-radius: 15px;
+  color: black;
+  font-size: 150%;
+  background-color: white;
+  opacity: 0.8;
+  padding: .1em .1em .1em .1em;
 }
 
 // .align-right {

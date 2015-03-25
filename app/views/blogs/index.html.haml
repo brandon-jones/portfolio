@@ -6,13 +6,13 @@
         = content_tag :div, msg, class: name
       - if @blogs.length > 0
         -@blogs.reverse.each do |blog|
-          %a{ href: "#{blog_path(blog)}" }
-            %h2
-              =blog[:title]
-          - if blog[:created_at].present?
-            %p
-              =local_time(blog[:created_at])
-          - blog["tags"].split(',').each do |tag|
-            %span.badge
-              = tag
-          %hr
+          .text-wrapper
+            %a{ href: "#{blog_path(blog)}" }
+              %h2
+                =blog[:title]
+            - if blog[:created_at].present?
+              %p
+                =local_time(blog[:created_at])
+            - blog["tags"].split(',').each do |tag|
+              %span.badge
+                = tag
