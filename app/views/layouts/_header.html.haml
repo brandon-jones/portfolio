@@ -2,14 +2,14 @@
   .container-fluid 
     / Brand and toggle get grouped for better mobile display
     .navbar-header
-      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggle.collapsed{"data-target" => "#navbar-header", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
       %a.navbar-brand{:href => "#{root_path}"} BRJcoding
     / Collect the nav links, forms, and other content for toggling
-    .collapse.navbar-collapse
+    #navbar-header.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li{class: "#{current_page('projects')}"}
           =link_to 'Projects', projects_path, class: 'no-decorations'
